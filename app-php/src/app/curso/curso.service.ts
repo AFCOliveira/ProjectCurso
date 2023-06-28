@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Curso } from './curso';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +10,10 @@ import { Observable } from 'rxjs';
 export class CursoService {
 
   //URL
-  url = "http://localhost/api/php/";
+  url = "http://localhost/api/ProjectCurso/php/";
 
   //Vetor
-  vetor: Curso[] = [];
+  vetor: Curso[];
 
   constructor(private http: HttpClient) { }
 

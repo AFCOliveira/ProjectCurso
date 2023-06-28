@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Curso } from './curso';
 import { CursoService } from './curso.service';
@@ -7,14 +6,15 @@ import { CursoService } from './curso.service';
   selector: 'app-curso',
   templateUrl: './curso.component.html',
   styleUrls: ['./curso.component.css']
+
 })
 export class CursoComponent implements OnInit {
 
   //URL Base
-  url = "http://localhost/api/php/";
+  url = "http://localhost/api/ProjectCurso/php/";
 
   //Vetor de Cursos
-  vetor: Curso[] = [];
+  vetor: Curso[];
 
   //Construtor
   constructor(private curso_service: CursoService) {}
