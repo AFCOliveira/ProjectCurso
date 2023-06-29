@@ -15,6 +15,9 @@ export class CursoComponent implements OnInit {
 
   //Vetor de Cursos
   vetor: Curso[] = [];
+  
+  //Objeto da classe curso
+  curso = new Curso();
 
   //Construtor
   constructor(private curso_service: CursoService) {}
@@ -32,7 +35,7 @@ export class CursoComponent implements OnInit {
 
   //Seleção
   selecao(){
-    // console.log('call selecao component');
+    console.log('call selecao component');
     this.curso_service.obterCursos().subscribe(
       (res: Curso[]) => {
         this.vetor = res;
