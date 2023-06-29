@@ -14,7 +14,7 @@ export class CursoComponent implements OnInit {
   url = "http://localhost/api/ProjectCurso/php/";
 
   //Vetor de Cursos
-  vetor: Curso[];
+  vetor: Curso[] = [];
 
   //Construtor
   constructor(private curso_service: CursoService) {}
@@ -31,13 +31,14 @@ export class CursoComponent implements OnInit {
   }
 
   //Seleção
-  selecao(): void{
-    this.curso_service().subscribe(
+  selecao(){
+    // console.log('call selecao component');
+    this.curso_service.obterCursos().subscribe(
       (res: Curso[]) => {
         this.vetor = res;
-      } 
+      }
     )
-  }
+      } 
 
   //Alterar
   alterar(): void{
