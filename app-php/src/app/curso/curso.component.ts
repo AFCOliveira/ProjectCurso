@@ -29,8 +29,17 @@ export class CursoComponent implements OnInit {
   }
 
   //Cadastrar
-  cadastrar(): void{
-    alert("Cadastrar");
+  cadastrar(){
+    this.curso_service.cadastrarCurso(this.curso).subscribe(
+      (res: Curso) => {
+        //limpar atributos
+        this.curso.nomeCurso = "";
+        this.curso.valorCurso = 0;
+        
+        //atualizando listagem com novo cadastro
+        this.selecao();
+      }
+    )
   }
 
   //Seleção
@@ -49,7 +58,13 @@ export class CursoComponent implements OnInit {
   }
 
   //Remover
-  remover(): void{
-    alert("Remover");
+  remover(){
+   this.curso_service.removerCurso(this.curso.idCurso).subscribe(
+    (res: Curso) => {
+      this.curso.nomeCurso = "";
+      this.curso.valorCurso = 0;
+      this.selecao();
+    }
+   );
   }
 }

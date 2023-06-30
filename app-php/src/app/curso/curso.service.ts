@@ -26,4 +26,16 @@ export class CursoService {
       })
     )
   }
+
+  //Cadastrar Curso
+  cadastrarCurso(curso:Curso): Observable<Curso>{
+    return this.http.post<Curso>(this.url+'cadastrar', curso)
+  }
+
+  //Remover curso
+  removerCurso(id: any): Observable<Curso>{
+    const url = '${this.url}excluir?idCurso=${id}'
+    console.log(url);
+    return this.http.delete<Curso>(url);
+  }
 }
