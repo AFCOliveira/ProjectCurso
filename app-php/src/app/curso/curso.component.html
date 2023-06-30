@@ -4,3 +4,17 @@
     <td>{{v.valorCurso}}</td>
   </tr>
 </table>
+<br><br>
+<h1>Cadastrar,alterar ou remover um Curso</h1>
+<form>
+    <label>Nome do curso:</label>
+    <input type="text" name="nomeCurso" [(ngModel)]="curso.nomeCurso">
+    <br><br>
+    
+    <label>Valor:</label>
+    <input type="text" name="valorCurso" [(ngModel)]="curso.valorCurso">
+    <br><br>
+    
+    <button (click)="cadastro()">Cadastrar</button> <br><br>
+    <button (click)="alterar()">Alterar</button>
+</form>
