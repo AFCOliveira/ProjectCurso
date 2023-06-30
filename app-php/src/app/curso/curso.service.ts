@@ -38,4 +38,19 @@ export class CursoService {
     console.log(url);
     return this.http.delete<Curso>(url);
   }
+
+  //Atulaizar curso
+  atualizarCurso(curso:Curso): Observable<Curso[]>{
+    return this.http.put(this.url+'alterar', {cursos: curso}).pipe(
+      map((res) => {
+      const cursoAlterado = this.vetor.find((item) => {
+        return +item['idCurso'] === +['idCurso'];
+      });
+      if(cursoAlterado){
+        cursoAlterado['nomeCurso'] = curso['nomeCurso'];
+        cursoAlterado['valorCurso'] = curso['valorCurso'];
+      }
+      return this.vetor;
+  }))
+  }
 }

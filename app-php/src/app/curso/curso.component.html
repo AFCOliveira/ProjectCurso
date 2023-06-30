@@ -2,6 +2,7 @@
   <tr *ngFor="let v of vetor">
     <td>{{v.nomeCurso}}</td>
     <td>{{v.valorCurso}}</td>
+    <td><button (click)="selecionarCurso(v)">Selecionar curso</button></td>
   </tr>
 </table>
 <br><br>
@@ -10,11 +11,12 @@
     <label>Nome do curso:</label>
     <input type="text" name="nomeCurso" [(ngModel)]="curso.nomeCurso">
     <br><br>
-    
-    <label>Valor:</label>
+    <label>Valor do curso:</label>
     <input type="text" name="valorCurso" [(ngModel)]="curso.valorCurso">
     <br><br>
     
-    <button (click)="cadastro()">Cadastrar</button> <br><br>
-    <button (click)="alterar()">Alterar</button>
+    <button (click)="cadastrar()">Cadastrar</button> <br><br>
+    <button (click)="alterar(this.curso)">Alterar</button>
+    <button (click)="remover()">Alterar</button>
+
 </form>

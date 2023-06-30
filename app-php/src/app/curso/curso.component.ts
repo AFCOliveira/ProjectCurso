@@ -35,7 +35,6 @@ export class CursoComponent implements OnInit {
         //limpar atributos
         this.curso.nomeCurso = "";
         this.curso.valorCurso = 0;
-        
         //atualizando listagem com novo cadastro
         this.selecao();
       }
@@ -53,18 +52,37 @@ export class CursoComponent implements OnInit {
       } 
 
   //Alterar
-  alterar(): void{
-    alert("Alterar");
+  alterar(){
+    this.curso_service.atualizarCurso(this.curso).subscribe(
+      (res) => {
+        //Atualizar vetor
+        this.vetor = res;
+        //Limpar campos
+        this.curso.nomeCurso = "";
+        this.curso.valorCurso = 0;
+        //Atualizar listagem
+        this.selecao();
+      }
+    )
   }
 
   //Remover
   remover(){
    this.curso_service.removerCurso(this.curso.idCurso).subscribe(
     (res: Curso) => {
+      //Limpar campos
       this.curso.nomeCurso = "";
       this.curso.valorCurso = 0;
+      //Atualizar listagem
       this.selecao();
     }
    );
+  }
+
+  //selecionador de curso
+  selecionarCurso(curso:Curso){
+    this.curso.idCurso = curso.idCurso;
+    this.curso.nomeCurso = curso.nomeCurso;
+    this.curso.valorCurso = curso.valorCurso;
   }
 }
