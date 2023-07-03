@@ -34,7 +34,7 @@ export class CursoService {
 
   //Remover curso
   removerCurso(id: any): Observable<Curso>{
-    const url = '${this.url}excluir?idCurso=${id}'
+    const url = `${this.url}excluir?idCurso=${id}`
     console.log(url);
     return this.http.delete<Curso>(url);
   }

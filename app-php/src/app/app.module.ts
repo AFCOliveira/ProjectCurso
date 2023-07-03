@@ -13,7 +13,6 @@ import { CursoComponent } from './curso/curso.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgModule,
     FormsModule
   ],
   providers: [],
