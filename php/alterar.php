@@ -23,8 +23,9 @@ $curso = [
     'idCurso' => $idCurso,
     'nomeCurso' => $nomeCurso,
     'valorCurso' => $valorCurso
-]
+];
 
-json_encode(['curso'] => $curso);
+echo json_encode(['curso' => $curso]);
+//json_encode(['curso'] => $curso);
 
 ?>
