@@ -40,17 +40,7 @@ export class CursoService {
   }
 
   //Atulaizar curso
-  atualizarCurso(curso:Curso): Observable<Curso[]>{
-    return this.http.put(this.url+'alterar', {cursos: curso}).pipe(
-      map((res) => {
-      const cursoAlterado = this.vetor.find((item) => {
-        return +item['idCurso'] === +['idCurso'];
-      });
-      if(cursoAlterado){
-        cursoAlterado['nomeCurso'] = curso['nomeCurso'];
-        cursoAlterado['valorCurso'] = curso['valorCurso'];
-      }
-      return this.vetor;
-  }))
+  alterarCurso(curso:Curso): Observable<Curso>{
+    return this.http.put(this.url+'alterar', curso)
   }
 }

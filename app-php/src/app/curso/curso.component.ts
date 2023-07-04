@@ -28,6 +28,23 @@ export class CursoComponent implements OnInit {
     this.selecao();    
   }
 
+  //Seleção
+  selecao(){
+    console.log('call selecao component');
+    this.curso_service.obterCursos().subscribe(
+      (res: Curso[]) => {
+        this.vetor = res;
+      }
+    )
+  } 
+  salvar(){
+    if(this.curso.idCurso == undefined){
+      this.cadastrar();
+    }else{
+      this.alterar();
+    }
+  }
+
   //Cadastrar
   cadastrar(){
     this.curso_service.cadastrarCurso(this.curso).subscribe(
@@ -41,42 +58,28 @@ export class CursoComponent implements OnInit {
     )
   }
 
-  //Seleção
-  selecao(){
-    console.log('call selecao component');
-    this.curso_service.obterCursos().subscribe(
-      (res: Curso[]) => {
-        this.vetor = res;
-      }
-    )
-      } 
-
   //Alterar
   alterar(){
-    this.curso_service.atualizarCurso(this.curso).subscribe(
-      (res) => {
-        //Atualizar vetor
-        this.vetor = res;
+    this.curso_service.alterarCurso(this.curso).subscribe(
+      (res: Curso) => {
         //Limpar campos
         this.curso.nomeCurso = "";
         this.curso.valorCurso = 0;
         //Atualizar listagem
         this.selecao();
+        alert("Curso de ID "+this.curso.idCurso+" alterado com sucesso!")
       }
-    )
+    );
   }
 
   //Remover
   remover(){
-   this.curso_service.removerCurso(this.curso.idCurso).subscribe(
-    (res: Curso) => {
+   this.curso_service.removerCurso(this.curso.idCurso).subscribe
       //Limpar campos
       this.curso.nomeCurso = "";
       this.curso.valorCurso = 0;
       //Atualizar listagem
       this.selecao();
-    }
-   );
   }
 
   //selecionador de curso
@@ -84,5 +87,6 @@ export class CursoComponent implements OnInit {
     this.curso.idCurso = curso.idCurso;
     this.curso.nomeCurso = curso.nomeCurso;
     this.curso.valorCurso = curso.valorCurso;
+    console.log("Curso selecionado: ", this.curso.nomeCurso + "id: "+this.curso.idCurso)
   }
 }
