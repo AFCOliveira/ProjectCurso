@@ -8,13 +8,14 @@
 <br><br>
 <h2>Cadastrar,alterar ou remover um Curso</h2>
 <form (ngSubmit) = "cadastrar()">
-    <label for="nomeCurso">Nome do curso:</label>
+    <label for="nomeCurso">Nome do curso: </label>
     <input type="text" name="nomeCurso" [(ngModel)]="curso.nomeCurso">
     <br><br>
-    <label for="valorCurso">Valor do curso:</label>
+    <label for="valorCurso">Valor do curso: </label>
     <input type="text" name="valorCurso" [(ngModel)]="curso.valorCurso">
     <br><br>
 </form>
-<button (click)="cadastrar()">Cadastrar</button> <br><br>
+<br>
+<button (click)="cadastrar()">Cadastrar</button>
 <button (click)="alterar()">Alterar</button>
 <button (click)="remover()">Excluir</button>
