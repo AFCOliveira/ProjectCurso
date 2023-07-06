@@ -2,16 +2,16 @@
   <form (ngSubmit) = "salvar()">
     <label for="nomeCurso">Nome do curso: </label>
     <input type="text" name="nomeCurso" [(ngModel)]="curso.nomeCurso">
-    <br><br>
+    <br>
     <label for="valorCurso">Valor do curso: </label>
     <input type="text" name="valorCurso" [(ngModel)]="curso.valorCurso">
-    <br><br>
+    <br>
     <button type="submit">Salvar</button>
   </form>
 <section>
   <button (click)="remover()">Excluir</button>
 </section>
-<button (click)="alterar()">Alterar</button>
+
 <br><br>
 <table border="1">
   <tr *ngFor="let v of vetor">

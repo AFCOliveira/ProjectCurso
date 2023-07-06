@@ -41,6 +41,6 @@ export class CursoService {
 
   //Atulaizar curso
   alterarCurso(curso:Curso): Observable<Curso>{
-    return this.http.put(this.url+'alterar', curso)
+    return this.http.put<Curso>(this.url+'alterar', curso);
   }
 }
