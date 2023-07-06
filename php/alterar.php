@@ -10,9 +10,9 @@ $obterDados = file_get_contents("php://input");
 $extrair = json_decode($obterDados);
 
 //Separar os dados do JSON
-$idCurso = $extrair->cursos->idCurso;
-$nomeCurso = $extrair->cursos->nomeCurso;
-$valorCurso = $extrair->cursos->valorCurso;
+$idCurso = $extrair->idCurso;
+$nomeCurso = $extrair->nomeCurso;
+$valorCurso = $extrair->valorCurso;
 
 //SQL
 $sql = "UPDATE cursos SET nomeCurso='$nomeCurso', valorCurso=$valorCurso WHERE idCurso=$idCurso";
